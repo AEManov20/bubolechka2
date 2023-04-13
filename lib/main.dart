@@ -62,7 +62,7 @@ class _BuboHomePageState extends State<BuboHomePage> {
               right: 30,
               bottom: 30,
               width: 54,
-              height: 300,
+              height: 600,
               child: LanguageSelector(onLanguageChange: (newLanguage) {
                 setState(() {
                   _language = newLanguage.toLowerCase();
