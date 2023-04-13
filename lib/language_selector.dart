@@ -1,8 +1,17 @@
 import 'package:circle_flags/circle_flags.dart';
 import 'package:flutter/material.dart';
+import 'package:bubolechka2/data/categories.dart';
+import 'package:collection/collection.dart';
+import 'package:bubolechka2/models/bubo_category.dart';
 
 /// Available languages
-const languages = ['BG', 'US', 'DE'];
+/// (taken from the already existing data)
+/// (proposal)
+var languages = buboCategories[0]
+    .translatedLabels
+    .keys
+    .map((e) => e.toUpperCase())
+    .toList();
 
 ///
 /// Callback function definition that will be used to notify the parent widget
@@ -43,9 +52,9 @@ class _LanguageSelectorState extends State<LanguageSelector> {
   @override
   Widget build(BuildContext context) {
     List<Widget> selectionWidgets = [];
-    for (int i = 0; i < languages.length; i++) {
-      selectionWidgets.add(__getAnimatedWidgetForLanguage(languages[i], i + 1));
-    }
+
+    languages.forEachIndexed((index, language) => selectionWidgets
+        .add(__getAnimatedWidgetForLanguage(language, index + 1)));
 
     return Stack(
       children: [
