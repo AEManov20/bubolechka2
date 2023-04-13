@@ -6,12 +6,57 @@ import '../models/bubo_category.dart';
 
 /// Original labels in german, bulgarian, english and french added as last value
 const labels = [
-  ["1", "Obst", "плодове", "vegetables", "légumes", "verdure", "vihannekset"],
-  ["2", "Farben", "цветове", "colors", "couleurs", "colori", "värit"],
-  ["3", "Moebel", "мебели", "furniture", "meubles", "mobili", "huonekalut"],
-  ["4", "Sachen", "дрехи", "clothes", "vêtements", "vestiti", "vaatteet"],
-  ["5", "Spielzeug", "играчки", "toys", "jouets", "giocattoli", "lelut"],
-  ["6", "Tiere", "животни", "animals", "animaux", "animali", "eläimet"],
+  [
+    "1",
+    "Obst",
+    "плодове",
+    "vegetables",
+    "légumes",
+    "verdure",
+    "vihannekset",
+    "legumes"
+  ],
+  ["2", "Farben", "цветове", "colors", "couleurs", "colori", "värit", "cores"],
+  [
+    "3",
+    "Moebel",
+    "мебели",
+    "furniture",
+    "meubles",
+    "mobili",
+    "huonekalut",
+    "móveis"
+  ],
+  [
+    "4",
+    "Sachen",
+    "дрехи",
+    "clothes",
+    "vêtements",
+    "vestiti",
+    "vaatteet",
+    "roupas"
+  ],
+  [
+    "5",
+    "Spielzeug",
+    "играчки",
+    "toys",
+    "jouets",
+    "giocattoli",
+    "lelut",
+    "brinquedos"
+  ],
+  [
+    "6",
+    "Tiere",
+    "животни",
+    "animals",
+    "animaux",
+    "animali",
+    "eläimet",
+    "animais"
+  ],
   [
     "7",
     "Wilde Tiere",
@@ -19,13 +64,32 @@ const labels = [
     "wild animals",
     "animaux sauvages",
     "animali selvatici",
-    "villieläimet"
+    "villieläimet",
+    "animais selvagens"
   ],
-  ["8", "Zahlen", "цифри", "digits", "chiffres", "cifre", "numerot"],
-  ["9", "Wetter", "времето", "weather", "le temps", "tempo", "sää"],
-  ["10", "Zu Hause", "вкъщи", "at home", "à la maison", "a casa", "kotona"],
-  ["11", "Natur", "природа", "nature", "nature", "natura", "luonto"],
-  ["12", "Im Meer", "морето", "sea", "mer", "mare", "meri"],
+  ["8", "Zahlen", "цифри", "digits", "chiffres", "cifre", "numerot", "dígitos"],
+  ["9", "Wetter", "времето", "weather", "le temps", "tempo", "sää", "tempo"],
+  [
+    "10",
+    "Zu Hause",
+    "вкъщи",
+    "at home",
+    "à la maison",
+    "a casa",
+    "kotona",
+    "em casa"
+  ],
+  [
+    "11",
+    "Natur",
+    "природа",
+    "nature",
+    "nature",
+    "natura",
+    "luonto",
+    "natureza"
+  ],
+  ["12", "Im Meer", "морето", "sea", "mer", "mare", "meri", "mar"],
   [
     "13",
     "Am Strand",
@@ -33,10 +97,11 @@ const labels = [
     "on the beach",
     "sur la plage",
     "in spiaggia",
-    "rannalla"
+    "rannalla",
+    "na praia"
   ],
-  ["14", "Sport", "спорт", "sport", "sport", "sport", "urheilu"],
-  ["15", "Stadt", "град", "city", "ville", "città", "kaupunki"],
+  ["14", "Sport", "спорт", "sport", "sport", "sport", "urheilu", "esporte"],
+  ["15", "Stadt", "град", "city", "ville", "città", "kaupunki", "cidade"],
   [
     "16",
     "Berufe",
@@ -44,7 +109,8 @@ const labels = [
     "professions",
     "métiers",
     "professioni",
-    "ammatit"
+    "ammatit",
+    "profissões"
   ],
   [
     "17",
@@ -53,7 +119,8 @@ const labels = [
     "transport",
     "transport",
     "trasporto",
-    "liikenne"
+    "liikenne",
+    "transporte"
   ],
 ];
 
@@ -67,11 +134,12 @@ List<BuboCategory> buboCategories = labels.map((categoryLabels) {
       int.parse(categoryLabels[0]),
       'assets/categories/cat_${categoryLabels[1].toLowerCase().replaceAll(' ', '_')}@3x.png',
       {
+        'bg': categoryLabels[2],
         'us': categoryLabels[3],
         'de': categoryLabels[1],
-        'bg': categoryLabels[2],
         'fr': categoryLabels[4],
         'it': categoryLabels[5],
-        'fi': categoryLabels[6]
+        'fi': categoryLabels[6],
+        'br': categoryLabels[7]
       });
 }).toList();
