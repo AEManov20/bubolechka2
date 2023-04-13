@@ -4,15 +4,6 @@ import 'package:bubolechka2/data/categories.dart';
 import 'package:collection/collection.dart';
 import 'package:bubolechka2/models/bubo_category.dart';
 
-/// Available languages
-/// (taken from the already existing data)
-/// (proposal)
-var languages = buboCategories[0]
-    .translatedLabels
-    .keys
-    .map((e) => e.toUpperCase())
-    .toList();
-
 ///
 /// Callback function definition that will be used to notify the parent widget
 /// about language changes
@@ -53,8 +44,15 @@ class _LanguageSelectorState extends State<LanguageSelector> {
   Widget build(BuildContext context) {
     List<Widget> selectionWidgets = [];
 
-    languages.forEachIndexed((index, language) => selectionWidgets
-        .add(__getAnimatedWidgetForLanguage(language, index + 1)));
+    // Available languages
+    // (taken from the already existing data)
+    // (proposal)
+    buboCategories[0]
+        .translatedLabels
+        .keys
+        .map((e) => e.toUpperCase())
+        .forEachIndexed((index, language) => selectionWidgets
+            .add(__getAnimatedWidgetForLanguage(language, index + 1)));
 
     return Stack(
       children: [
