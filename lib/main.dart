@@ -119,17 +119,24 @@ class BuboCategoryListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset(category.image, width: 450, fit: BoxFit.fill),
-        Container(
-            // cheap and dirty fix for aligning the text inside of the image
-            transform: Matrix4.translationValues(0.0, -100.0, 0.0),
-            child: Text(
-              category.translatedLabels[language]!,
-              style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 40,
-                  color: Colors.white),
-            ))
+        Padding(
+            padding: EdgeInsets.all(20.0),
+            child: Container(
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(category.image), fit: BoxFit.fill)),
+                width: 350,
+                height: 350,
+                child: Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 200, 0, 0),
+                    child: Center(
+                        child: Text(
+                      category.translatedLabels[language]!,
+                      style: const TextStyle(
+                          fontWeight: FontWeight.normal,
+                          fontSize: 40,
+                          color: Colors.white),
+                    )))))
       ],
     );
   }
